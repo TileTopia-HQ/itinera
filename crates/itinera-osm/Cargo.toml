@@ -1,0 +1,16 @@
+[package]
+name = "itinera-osm"
+description = "OpenStreetMap PBF/XML parser for road network extraction"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+itinera-graph = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+osmpbf = "0.3"
+
+[dev-dependencies]

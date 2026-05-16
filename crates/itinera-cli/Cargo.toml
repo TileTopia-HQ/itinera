@@ -1,0 +1,23 @@
+[package]
+name = "itinera-cli"
+description = "CLI for building graphs and running route queries"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[[bin]]
+name = "itinera"
+path = "src/main.rs"
+
+[dependencies]
+itinera-core = { workspace = true }
+itinera-graph = { workspace = true }
+itinera-osm = { workspace = true }
+itinera-server = { path = "../itinera-server" }
+tokio = { workspace = true }
+serde_json = { workspace = true }
+clap = { version = "4", features = ["derive"] }
+bincode = "1"
+axum = "0.8"

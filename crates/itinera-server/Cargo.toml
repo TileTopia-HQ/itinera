@@ -1,0 +1,19 @@
+[package]
+name = "itinera-server"
+description = "HTTP API server for routing queries"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+
+[dependencies]
+itinera-core = { workspace = true }
+itinera-graph = { workspace = true }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+axum = "0.8"
+tower-http = { version = "0.6", features = ["cors"] }
+
+[dev-dependencies]
