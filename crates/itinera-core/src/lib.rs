@@ -9,6 +9,7 @@ mod error;
 mod isochrone;
 mod maneuver;
 mod route;
+pub mod vrp;
 
 pub use astar::astar;
 pub use ch::ContractionHierarchy;
