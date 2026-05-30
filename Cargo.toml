@@ -8,6 +8,7 @@ edition = "2024"
 license = "AGPL-3.0-or-later"
 repository = "https://github.com/TileTopia-HQ/itinera"
 authors = ["TileTopia <tiletopia@proton.me>"]
+description = "Routing engine with Dijkstra, isochrones, and map matching"
 
 [workspace.dependencies]
 itinera-core = { path = "crates/itinera-core" }
