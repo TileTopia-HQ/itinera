@@ -10,9 +10,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates curl \
     && rm -rf /var/lib/apt/lists/*
 
-RUN useradd -r -s /bin/false itinera
+RUN useradd -r -s /bin/false itinera && \
+    mkdir -p /data && chown itinera:itinera /data
 
 COPY --from=builder /app/target/release/itinera /usr/local/bin/itinera
+COPY --chmod=755 docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
 USER itinera
 
@@ -25,5 +27,5 @@ VOLUME /data
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
     CMD curl -f http://localhost:3000/health || exit 1
 
-ENTRYPOINT ["itinera"]
-CMD ["serve", "--data", "/data", "--bind", "0.0.0.0:3000"]
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["serve", "--graph", "/data/graph.bin", "--bind", "0.0.0.0:3000"]
