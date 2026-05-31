@@ -45,6 +45,7 @@ No garbage collector pauses. No segfaults. No dependency hell.
 - **R-tree spatial index** — Fast nearest-node queries
 - **Binary serialization** — Compact bincode format for instant graph loading
 - **Turn restrictions** — No-turn / only-turn from OSM relations
+- **Network analysis** — Connected components, OD matrix, closest facility, betweenness centrality
 
 ---
 
