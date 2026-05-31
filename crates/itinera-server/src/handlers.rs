@@ -7,6 +7,7 @@ use axum::{
 };
 use serde::{Deserialize, Serialize};
 use tower_http::cors::CorsLayer;
+use tower_http::trace::TraceLayer;
 
 use itinera_core::{Route, astar, dijkstra, isochrone, vrp};
 use itinera_graph::{Coord, SpeedProfile};
@@ -21,6 +22,7 @@ pub fn router(state: AppState) -> Router {
         .route("/isochrone", get(isochrone_handler))
         .route("/delivery/optimize", axum::routing::post(delivery_optimize))
         .route("/health", get(health_handler))
+        .layer(TraceLayer::new_for_http())
         .layer(CorsLayer::permissive())
         .with_state(state)
 }
