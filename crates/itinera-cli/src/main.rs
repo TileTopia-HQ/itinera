@@ -152,6 +152,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             ch: ch_path,
             profile: profile_name,
         } => {
+            itinera_server::init_tracing();
             let profile = resolve_profile(&profile_name)?;
 
             println!("Loading graph from: {graph_path}");
